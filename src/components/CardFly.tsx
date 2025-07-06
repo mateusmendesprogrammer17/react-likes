@@ -13,42 +13,38 @@ export default function CardFly({ likes, dislikes, liked, disliked, onLike, onDi
   const dislikedPercentage = totalVotes > 0 ? (dislikes / totalVotes) * 100 : 0;
 
   return (
-    <div className="max-w-xs w-full bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+     <div className="max-w-xs w-full bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-green-400 to-green-700 p-6 text-white">
-        <h2 className="text-2xl font-bold mb-2">
-          Tecnologias Emergentes 2025
-        </h2>
+        <h2 className="text-2xl font-bold mb-2"></h2>
         <p className="text-blue-100">
-          Descubra as principais tendências tecnológicas deste ano
+          Avalie aqui a ideia de outros participantes
         </p>
       </div>
 
       {/* Content */}
       <div className="p-6">
         <p className="text-gray-700 mb-6 leading-relaxed">
-          Inteligência Artificial, Computação Quântica e Realidade Aumentada estão 
-          revolucionando a forma como interagimos com a tecnologia. O que você acha 
-          dessas inovações?
+          Aqui é a descrição do Fly que outros participantes adicionaram. Você pode avaliar a ideia deles clicando nos botões de curtir ou não curtir abaixo. Sua participação é importante para a comunidade!
         </p>
 
         {/* Stats */}
         {totalVotes > 0 && (
           <div className="mb-6">
-           <div className="text-sm text-gray-600 mb-2 space-y-1">
-            <p>
-            <span className="font-semibold text-green-600 text-sm">Aprovação:</span>{' '}
-            <p className="text-green-700">{likePercentage.toFixed(1)}%</p>
-          </p>
-          <p>
-            <span className="font-semibold text-red-600">Reprovação:</span>{' '}
-            <p className="text-red-700">{dislikedPercentage.toFixed(1)}%</p>
-          </p>
-          <p>
-            <span className="font-semibold text-gray-800">Total de votos:</span>{' '}
-            {totalVotes}
-          </p>
-          </div>
+            <div className="text-sm text-gray-600 mb-2 space-y-1">
+              <p>
+                <span className="font-semibold text-green-600 text-sm">Aprovação:</span>{' '}
+                <p className="text-green-700">{likePercentage.toFixed(1)}%</p>
+              </p>
+              <p>
+                <span className="font-semibold text-red-600">Reprovação:</span>{' '}
+                <p className="text-red-700">{dislikedPercentage.toFixed(1)}%</p>
+              </p>
+              <p>
+                <span className="font-semibold text-gray-800">Total de votos:</span>{' '}
+                {totalVotes}
+              </p>
+            </div>
           </div>
         )}
 
@@ -56,7 +52,7 @@ export default function CardFly({ likes, dislikes, liked, disliked, onLike, onDi
         <div className="flex gap-3 justify-center">
           <button
             onClick={onLike}
-            className="flex items-center gap-2 px-6 py-3 bg-none hover:bg-none text-green-600 font-medium rounded-lg transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-md hover:shadow-lg"
+            className="flex items-center gap-2 px-6 py-3 bg-none text-green-600 font-medium rounded-lg transition-all duration-200 transform hover:scale-105 active:scale-95"
           >
             {liked ? (
               <svg className="w-6 h-6 text-green-600 dark:text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
@@ -71,36 +67,30 @@ export default function CardFly({ likes, dislikes, liked, disliked, onLike, onDi
               {likes}
             </span>
           </button>
-          
 
-
-
-            <a href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-500 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-blue-800">
-        Read more
-        <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-        </svg>
-    </a>
-
-
+              <a href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-green-600 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                      Read more
+                      <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                      </svg>
+                  </a>
+           
 
 
 
           <button
             onClick={onDislike}
-            className="flex items-center gap-2 px-6 py-3 bg-none hover:bg-none text-green-600 font-medium rounded-lg transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-md hover:shadow-lg"
+            className="flex items-center gap-2 px-6 py-3 bg-none text-red-600 font-medium rounded-lg transition-all duration-200 transform hover:scale-105 active:scale-95"
           >
-           
-            {disliked ?
-            
-            (<svg className="w-6 h-6 text-red-600 dark:text-red-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+            {disliked ? (
+              <svg className="w-6 h-6 text-red-600 dark:text-red-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                 <path fillRule="evenodd" d="M8.97 14.316H5.004c-.322 0-.64-.08-.925-.232a2.022 2.022 0 0 1-.717-.645 2.108 2.108 0 0 1-.242-1.883l2.36-7.201C5.769 3.54 5.96 3 7.365 3c2.072 0 4.276.678 6.156 1.256.473.145.925.284 1.35.404h.114v9.862a25.485 25.485 0 0 0-4.238 5.514c-.197.376-.516.67-.901.83a1.74 1.74 0 0 1-1.21.048 1.79 1.79 0 0 1-.96-.757 1.867 1.867 0 0 1-.269-1.211l1.562-4.63ZM19.822 14H17V6a2 2 0 1 1 4 0v6.823c0 .65-.527 1.177-1.177 1.177Z" clipRule="evenodd"/>
-              </svg>)
-            :
-            ( <svg className="w-6 h-6 text-red-700 dark:text-red-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+              </svg>
+            ) : (
+              <svg className="w-6 h-6 text-red-700 dark:text-red-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                 <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 13c-.889.086-1.416.543-2.156 1.057a22.322 22.322 0 0 0-3.958 5.084 1.6 1.6 0 0 1-.582.628 1.549 1.549 0 0 1-1.466.087 1.587 1.587 0 0 1-.537-.406 1.666 1.666 0 0 1-.384-1.279l1.389-4.114M17 13h3V6.5A1.5 1.5 0 0 0 18.5 5v0A1.5 1.5 0 0 0 17 6.5V13Zm-6.5 1H5.585c-.286 0-.372-.014-.626-.15a1.797 1.797 0 0 1-.637-.572 1.873 1.873 0 0 1-.215-1.673l2.098-6.4C6.462 4.48 6.632 4 7.88 4c2.302 0 4.79.943 6.67 1.475"/>
-              </svg>)}
-
+              </svg>
+            )}
             <span className="bg-none px-2 py-1 rounded-full text-sm text-red-600 font-bold">
               {dislikes}
             </span>

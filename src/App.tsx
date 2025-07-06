@@ -5,8 +5,12 @@ import CardFly from './components/CardFly';
 function App() {
   const [countLikes, setCountLikes] = useState<number>(0);
   const [countDisLikes, setCountDisLikes] = useState<number>(0);
+  const [liked, setLiked] = useState<boolean>(false);
+  const [disliked, setDisliked] = useState<boolean>(false);
 
   const handleLike = (): void => {
+    setLiked(true);
+    setDisliked(false);
     setCountLikes((prev) => prev + 1);
     if (countDisLikes > 0) {
       setCountDisLikes((prev) => prev - 1);
@@ -14,6 +18,8 @@ function App() {
   };
 
   const handleDislike = (): void => {
+    setDisliked(true);
+    setLiked(false);
     setCountDisLikes((prev) => prev + 1);
     if (countLikes > 0) {
       setCountLikes((prev) => prev - 1);
@@ -36,6 +42,8 @@ function App() {
           <CardFly
             likes={countLikes}
             dislikes={countDisLikes}
+            liked={liked}
+            disliked={disliked}
             onLike={handleLike}
             onDislike={handleDislike}
           />

@@ -10,6 +10,7 @@ type Props = {
 export default function CardFly({ likes, dislikes, liked, disliked, onLike, onDislike }: Props) {
   const totalVotes = likes + dislikes;
   const likePercentage = totalVotes > 0 ? (likes / totalVotes) * 100 : 0;
+  const dislikedPercentage = totalVotes > 0 ? (dislikes / totalVotes) * 100 : 0;
 
   return (
     <div className="max-w-xs w-full bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
@@ -34,16 +35,20 @@ export default function CardFly({ likes, dislikes, liked, disliked, onLike, onDi
         {/* Stats */}
         {totalVotes > 0 && (
           <div className="mb-6">
-            <div className="flex justify-between text-sm text-gray-600 mb-2">
-              <span>Aprovação: {likePercentage.toFixed(1)}%</span>
-              <span>Total de votos: {totalVotes}</span>
-            </div>
-            <div className="w-full bg-gray-200 rounded-full h-2">
-              <div 
-                className="bg-gradient-to-r from-green-400 to-green-700 h-2 rounded-full transition-all duration-500"
-                style={{ width: `${likePercentage}%` }}
-              ></div>
-            </div>
+           <div className="text-sm text-gray-600 mb-2 space-y-1">
+            <p>
+            <span className="font-semibold text-green-600 text-sm">Aprovação:</span>{' '}
+            <p className="text-green-700">{likePercentage.toFixed(1)}%</p>
+          </p>
+          <p>
+            <span className="font-semibold text-red-600">Reprovação:</span>{' '}
+            <p className="text-red-700">{dislikedPercentage.toFixed(1)}%</p>
+          </p>
+          <p>
+            <span className="font-semibold text-gray-800">Total de votos:</span>{' '}
+            {totalVotes}
+          </p>
+          </div>
           </div>
         )}
 

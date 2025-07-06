@@ -7,7 +7,8 @@ function App() {
   const [countDisLikes, setCountDisLikes] = useState<number>(0);
   const [liked, setLiked] = useState<boolean>(false);
   const [disliked, setDisliked] = useState<boolean>(false);
-
+  // const [useVotes, setUseVotes] = useState<'like' | 'dislike' | null>(null);
+  // isso acima verifica se o usuario já votou,se sim,retira o voto dele caso ele clique novamente
   const handleLike = (): void => {
     setLiked(true);
     setDisliked(false);
